@@ -1,0 +1,25 @@
+name: Unzip Lara Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show files before
+        run: ls -la
+
+      - name: Unzip project
+        run: |
+          unzip lara.zip
+
+      - name: Remove zip
+        run: rm lara.zip
+
+      - name: Show extracted project
+        run: ls -R
